@@ -2,31 +2,50 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>HAPPY BIRTHDAY SENGG</title>
 
 <style>
+*{
+box-sizing:border-box;
+}
+
 body{
 margin:0;
 font-family:'Segoe UI',sans-serif;
 background:linear-gradient(135deg,#8fd3f4,#84fab0);
-overflow:hidden;
+overflow:auto;
 }
 
-/* ANIMASI HALUS */
+/* SAFE AREA (IPHONE NOTCH) */
+body{
+padding:env(safe-area-inset-top) 10px env(safe-area-inset-bottom);
+}
+
+/* ANIMASI */
 .slide{
+display:none;
+min-height:100dvh;
+padding:20px 10px;
+justify-content:center;
+align-items:center;
+flex-direction:column;
 animation:fade 0.5s;
 }
+
 @keyframes fade{
 from{opacity:0; transform:translateY(20px);}
 to{opacity:1; transform:translateY(0);}
 }
 
-/* PIN SCREEN */
+.active{
+display:flex;
+}
+
+/* PIN */
 #pinScreen{
 position:fixed;
-width:100%;
-height:100%;
+inset:0;
 background:linear-gradient(135deg,#4facfe,#00f2fe);
 display:flex;
 flex-direction:column;
@@ -35,6 +54,7 @@ align-items:center;
 color:white;
 text-align:center;
 z-index:10;
+padding:20px;
 }
 
 input{
@@ -43,6 +63,8 @@ border:none;
 border-radius:10px;
 font-size:18px;
 margin-top:10px;
+width:100%;
+max-width:250px;
 }
 
 button{
@@ -53,30 +75,19 @@ margin-top:10px;
 background:white;
 color:#333;
 font-weight:bold;
-}
-
-/* SLIDES */
-.slide{
 width:100%;
-height:100vh;
-display:none;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-}
-
-.active{
-display:flex;
+max-width:250px;
 }
 
 /* CHAT */
 .chatBox{
-width:90%;
+width:100%;
 max-width:400px;
-background:white;
+background:rgba(255,255,255,0.95);
 border-radius:20px;
 padding:15px;
 box-shadow:0 10px 30px rgba(0,0,0,0.2);
+backdrop-filter:blur(10px);
 }
 
 .message{
@@ -84,41 +95,44 @@ background:#dcf8c6;
 padding:10px;
 border-radius:12px;
 margin:8px 0;
-max-width:80%;
+max-width:100%;
+font-size:14px;
 }
 
+/* FOTO */
 .photo{
-max-width:220px;
 width:100%;
+max-width:260px;
 height:auto;
 border-radius:15px;
-margin-top:10px;
+margin:10px auto;
 display:block;
-margin:auto;
 box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
-.nextBtn{
-margin-top:20px;
-background:white;
+/* BUTTON */
+.nextBtn,.backBtn{
+margin-top:15px;
 padding:10px 20px;
 border-radius:20px;
 cursor:pointer;
+text-align:center;
+width:140px;
+}
+
+.nextBtn{
+background:white;
 }
 
 .backBtn{
-margin-top:10px;
 background:#eee;
-padding:10px 20px;
-border-radius:20px;
-cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🎶 MUSIK (DITAMBAH) -->
+<!-- 🎶 MUSIK -->
 <audio id="bgMusic" loop>
 <source src="Nadhif Basalamah - bergema sampai selamanya (Official Lyric Video).mp3" type="audio/mpeg">
 </audio>
@@ -140,7 +154,7 @@ cursor:pointer;
 <div class="nextBtn" onclick="nextSlide()">Next ➡</div>
 </div>
 
-<!-- SLIDE 2 FOTO -->
+<!-- FOTO -->
 <div class="slide">
 <div class="chatBox">
 <div id="msg3" class="message"></div>
@@ -149,7 +163,6 @@ cursor:pointer;
 <div class="nextBtn" onclick="nextSlide()">Next ➡</div>
 </div>
 
-<!-- 📸 FOTO TAMBAHAN 1 -->
 <div class="slide">
 <div class="chatBox">
 <img src="WhatsApp Image 2026-02-21 at 11.10.52 (1).jpeg" class="photo">
@@ -158,7 +171,6 @@ cursor:pointer;
 <div class="nextBtn" onclick="nextSlide()">Next ➡</div>
 </div>
 
-<!-- 📸 FOTO TAMBAHAN 2 -->
 <div class="slide">
 <div class="chatBox">
 <img src="WhatsApp Image 2026-02-21 at 11.10.52 (3).jpeg" class="photo">
@@ -167,7 +179,7 @@ cursor:pointer;
 <div class="nextBtn" onclick="nextSlide()">Next ➡</div>
 </div>
 
-<!-- SLIDE 3 -->
+<!-- TEXT -->
 <div class="slide">
 <div class="chatBox">
 <div id="msg4" class="message"></div>
@@ -176,7 +188,7 @@ cursor:pointer;
 <div class="nextBtn" onclick="nextSlide()">Next ➡</div>
 </div>
 
-<!-- LAGU -->
+<!-- KATA-KATA -->
 <div class="slide">
 <div class="chatBox">
 <div class="message">Selamat Ulang Tahun Sayangku 🤍</div>
@@ -189,21 +201,19 @@ border-radius:15px;
 padding:15px;
 margin-top:15px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
-text-align:left;
 line-height:1.6;
 ">
-Aku mungkin ga selalu bilang ini,
+Aku mungkin ga selalu bilang ini,  
+tapi aku bener-bener bersyukur punya kamu 🤍  
+
+Dari semua hal yang aku lewatin,  
+kamu adalah bagian paling indahnya.  
 
 Terima kasih sudah bertahan,  
 terima kasih sudah selalu ada,  
-dan terima kasih sudah jadi kamu 💗  
+dan terima kasih sudah jadi kamu 💙  
 
-Aku harap hari ini dan seterusnya,  
-kamu selalu bahagia.
-Selamat bertambah usia, nikmati dan
-buat hal hal yang bermanfaat diusia ini,
-semoga apa yang belum terwujud akan segera terwujud🥹
-
+Aku harap kamu selalu bahagia… sama aku 🙂
 </div>
 
 </div>
@@ -212,17 +222,13 @@ semoga apa yang belum terwujud akan segera terwujud🥹
 <div class="nextBtn" onclick="nextSlide()">Next ➡</div>
 </div>
 
-<!-- SLIDE TERAKHIR -->
+<!-- LAST -->
 <div class="slide">
 <div class="chatBox">
 <div class="message">Happy Birthday 🎉</div>
 <div class="message">
-Semoga semesta selalu memberimu kemudahan atas segala usahamu,  
-semoga doamu terkabul satu persatu,  
-semoga langkahmu selalu ringan,  
+Semoga semesta selalu memberimu kemudahan,  
 dan semoga aku tetap ada di cerita kamu 🤍
-
-AKU SAYANG KAMU
 </div>
 </div>
 
@@ -234,26 +240,30 @@ let slides=document.querySelectorAll(".slide");
 let index=0;
 
 function nextSlide(){
+if(index < slides.length-1){
 slides[index].classList.remove("active");
 index++;
 slides[index].classList.add("active");
 }
+}
 
 function prevSlide(){
+if(index > 0){
 slides[index].classList.remove("active");
 index--;
 slides[index].classList.add("active");
 }
+}
 
 function checkPin(){
 let pin=document.getElementById("pinInput").value;
+let music=document.getElementById("bgMusic");
+
 if(pin==="31032007"){
 document.getElementById("pinScreen").style.display="none";
 
-/* 🔥 PLAY MUSIK DI SINI */
-let music = document.getElementById("bgMusic");
-music.volume = 0.5; // biar ga terlalu kenceng
-music.play();
+music.volume=0.5;
+music.play().catch(()=>{});
 
 startTyping();
 }else{
@@ -275,7 +285,7 @@ typing();
 }
 
 function startTyping(){
-typeText("msg1","HAII BUBBBBBB 🙂",50);
+typeText("msg1","HAII BUBBBBBB 😝",50);
 setTimeout(()=>typeText("msg2","Aku cuma mau bilang sesuatu...",50),3000);
 
 setTimeout(()=>typeText("msg3","Ini adalah manusia favorit aku 💚",50),1000);
