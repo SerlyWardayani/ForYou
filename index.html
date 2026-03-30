@@ -13,6 +13,15 @@ background:linear-gradient(135deg,#8fd3f4,#84fab0);
 overflow:hidden;
 }
 
+/* ANIMASI HALUS */
+.slide{
+animation:fade 0.5s;
+}
+@keyframes fade{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
 /* PIN SCREEN */
 #pinScreen{
 position:fixed;
@@ -84,10 +93,9 @@ width:100%;
 height:auto;
 border-radius:15px;
 margin-top:10px;
-object-fit:contain;
 display:block;
-margin-left:auto;
-margin-right:auto;
+margin:auto;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
 .nextBtn{
@@ -110,6 +118,11 @@ cursor:pointer;
 
 <body>
 
+<!-- 🎶 MUSIK (DITAMBAH) -->
+<audio id="bgMusic" loop>
+<source src="Nadhif Basalamah - bergema sampai selamanya (Official Lyric Video).mp3" type="audio/mpeg">
+</audio>
+
 <!-- PIN -->
 <div id="pinScreen">
 <h2>🔒 Masukkan PIN</h2>
@@ -123,7 +136,6 @@ cursor:pointer;
 <div class="chatBox">
 <div id="msg1" class="message"></div>
 <div id="msg2" class="message"></div>
-<div id="msg3" class="message"></div>
 </div>
 <div class="nextBtn" onclick="nextSlide()">Next ➡</div>
 </div>
@@ -131,8 +143,26 @@ cursor:pointer;
 <!-- SLIDE 2 FOTO -->
 <div class="slide">
 <div class="chatBox">
-<div id="msg4" class="message"></div>
+<div id="msg3" class="message"></div>
 <img src="WhatsApp Image 2026-02-21 at 11.10.52.jpeg" class="photo">
+</div>
+<div class="nextBtn" onclick="nextSlide()">Next ➡</div>
+</div>
+
+<!-- 📸 FOTO TAMBAHAN 1 -->
+<div class="slide">
+<div class="chatBox">
+<img src="WhatsApp Image 2026-02-21 at 11.10.52 (1).jpeg" class="photo">
+<div class="message">Salah satu moment favorit aku 🤍</div>
+</div>
+<div class="nextBtn" onclick="nextSlide()">Next ➡</div>
+</div>
+
+<!-- 📸 FOTO TAMBAHAN 2 -->
+<div class="slide">
+<div class="chatBox">
+<img src="WhatsApp Image 2026-02-21 at 11.10.52 (3).jpeg" class="photo">
+<div class="message">Kamu selalu bikin aku senyum 💙</div>
 </div>
 <div class="nextBtn" onclick="nextSlide()">Next ➡</div>
 </div>
@@ -140,44 +170,41 @@ cursor:pointer;
 <!-- SLIDE 3 -->
 <div class="slide">
 <div class="chatBox">
+<div id="msg4" class="message"></div>
 <div id="msg5" class="message"></div>
-<div id="msg6" class="message"></div>
 </div>
 <div class="nextBtn" onclick="nextSlide()">Next ➡</div>
 </div>
 
-<!-- LAGU 1 -->
+<!-- LAGU -->
 <div class="slide">
 <div class="chatBox">
 <div class="message">Selamat Ulang Tahun Sayangku 🤍</div>
 
-<img src="WhatsApp Image 2026-02-21 at 11.10.52 (2).jpeg" class="photo">
+<img src="WhatsApp Image 2026-03-30 at 22.27.25.jpeg" class="photo">
 
+<div class="message" style="
+background:#fff;
+border-radius:15px;
+padding:15px;
+margin-top:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+text-align:left;
+line-height:1.6;
+">
+Aku mungkin ga selalu bilang ini,
 
-<iframe style="border-radius:12px"
-src="https://open.spotify.com/embed/track/6VgyRGeR4cw6yNGazjGFhu"
-width="100%" height="200" frameBorder="0"
-allow="autoplay; clipboard-write; encrypted-media;">
-</iframe>
+Terima kasih sudah bertahan,  
+terima kasih sudah selalu ada,  
+dan terima kasih sudah jadi kamu 💗  
+
+Aku harap hari ini dan seterusnya,  
+kamu selalu bahagia.
+Selamat bertambah usia, nikmati dan
+buat hal hal yang bermanfaat diusia ini,
+semoga apa yang belum terwujud akan segera terwujud🥹
 
 </div>
-
-<div class="backBtn" onclick="prevSlide()">⬅ Back</div>
-<div class="nextBtn" onclick="nextSlide()">Next ➡</div>
-</div>
-
-<!-- LAGU 2 -->
-<div class="slide">
-<div class="chatBox">
-<div class="message">Selalu sama aku yaaaaa..</div>
-
-<img src="WhatsApp Image 2026-02-21 at 11.10.52 (3).jpeg" class="photo">
-
-<iframe style="border-radius:12px"
-src="https://open.spotify.com/embed/track/1RaJdXCj61oSRUUciGKoWe"
-width="100%" height="200" frameBorder="0"
-allow="autoplay; clipboard-write; encrypted-media;">
-</iframe>
 
 </div>
 
@@ -189,7 +216,14 @@ allow="autoplay; clipboard-write; encrypted-media;">
 <div class="slide">
 <div class="chatBox">
 <div class="message">Happy Birthday 🎉</div>
-<div class="message">Semoga semesta selalu memberimu kemudahan atas segala usahamu, semoga doamu selalu terkabulkan satu persatu, semoga langkah selalu di ringankan, semoga pundakmu dikuatkan, semoga segala urusanmu dipermudah, semoga hatimu dilapangkan atas segala takdir yang diluar rencana mu, dan semoga km selalu dikelilingi orang orang baik dimn pun kamu berada 💙</div>
+<div class="message">
+Semoga semesta selalu memberimu kemudahan atas segala usahamu,  
+semoga doamu terkabul satu persatu,  
+semoga langkahmu selalu ringan,  
+dan semoga aku tetap ada di cerita kamu 🤍
+
+AKU SAYANG KAMU
+</div>
 </div>
 
 <div class="backBtn" onclick="prevSlide()">⬅ Back</div>
@@ -215,13 +249,19 @@ function checkPin(){
 let pin=document.getElementById("pinInput").value;
 if(pin==="31032007"){
 document.getElementById("pinScreen").style.display="none";
+
+/* 🔥 PLAY MUSIK DI SINI */
+let music = document.getElementById("bgMusic");
+music.volume = 0.5; // biar ga terlalu kenceng
+music.play();
+
 startTyping();
 }else{
 alert("PIN salah 😅");
 }
 }
 
-/* TYPING EFFECT */
+/* TYPING */
 function typeText(id,text,delay){
 let i=0;
 let el=document.getElementById(id);
@@ -236,13 +276,12 @@ typing();
 
 function startTyping(){
 typeText("msg1","HAII BUBBBBBB 🙂",50);
-setTimeout(()=>typeText("msg2","Hari ini hari apaaa yaaaaaaa 🎉",50),1500);
-setTimeout(()=>typeText("msg3","Aku cuma mau bilang sesuatu...",50),3000);
+setTimeout(()=>typeText("msg2","Aku cuma mau bilang sesuatu...",50),3000);
 
-setTimeout(()=>typeText("msg4","Ini adalah manusia favorit aku 💚",50),1000);
+setTimeout(()=>typeText("msg3","Ini adalah manusia favorit aku 💚",50),1000);
 
-setTimeout(()=>typeText("msg5","Semoga kamu selalu bahagia",50),1000);
-setTimeout(()=>typeText("msg6","Terima kasih sudah ada 💫",50),2500);
+setTimeout(()=>typeText("msg4","Semoga kamu selalu bahagia",50),1000);
+setTimeout(()=>typeText("msg5","Terima kasih sudah ada 💫",50),2500);
 }
 </script>
 
